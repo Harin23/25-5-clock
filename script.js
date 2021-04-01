@@ -15,6 +15,7 @@ class App extends React.Component{
         this.switchTimer=this.switchTimer.bind(this);
         this.updateEndTime=this.updateEndTime.bind(this);
         this.resetTimer=this.resetTimer.bind(this);
+        this.updateBreakLength=this.updateBreakLength.bind(this);
         this.timerCaller;
     }
     startStopTimer(){
@@ -72,14 +73,25 @@ class App extends React.Component{
             this.startStopTimer();
         }
     }
+    updateBreakLength(e){
+        if(e.target.parentElement.id=="break-increment"){
+            this.setState(state=>({
+                breakLength: state.breakLength+1
+            }))
+        }else{
+            this.setState(state=>({
+                breakLength: state.breakLength-1
+            }))
+        }
+    }
     render(){
         return(
             <div className="container" id="clock">
                 <div className="container" id="break-time">
-                    <button className="btns" id="break-increment"><i className="fa fa-sort-up fa-3x up-icon"></i></button>
+                    <button onClick={this.updateBreakLength}className="btns" id="break-increment"><i className="fa fa-sort-up fa-3x up-icon"></i></button>
                     <h6 id="break-label">Break Length:</h6>
                     <h6 id="break-length">{this.state.breakLength}</h6>
-                    <button className="btns" id="break-decrement"><i className="fa fa-sort-down fa-3x down-icon"></i></button>
+                    <button onClick={this.updateBreakLength}className="btns" id="break-decrement"><i className="fa fa-sort-down fa-3x down-icon"></i></button>
                 </div>
                 <div className="container" id="timer">
                     <h6 id="timer-label">{this.state.currTimer}</h6>
