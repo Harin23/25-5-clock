@@ -1,0 +1,82 @@
+body {
+  background-color: gray;
+}
+
+h6 {
+  font-weight: bolder;
+  font-size: xx-large;
+}
+
+#clock {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  border-radius: 10%;
+  border: 20px solid #174d4d;
+  background-color: lightsteelblue;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+}
+
+#break-time {
+  color: white;
+}
+
+#timer {
+  border-radius: 15%;
+  border: 10px solid black;
+  background-color: lightskyblue;
+  color: black;
+  text-align: center;
+}
+
+#session-time {
+  color: black;
+  text-align: right;
+}
+
+.btns {
+  background-color: black;
+  border-radius: 100%;
+}
+
+.btns:active {
+  outline: none;
+}
+
+.btns:focus {
+  outline: none;
+}
+
+.btns-timer {
+  background-color: black;
+  border-radius: 15%;
+}
+
+.btns-timer:active {
+  outline: none;
+}
+
+.btns-timer:focus {
+  outline: none;
+}
+
+.up-icon {
+  color: #0eb925;
+}
+
+.down-icon {
+  color: #9e1010;
+}
+
+.timer-icon {
+  color: #0d48eb;
+}
+/*# sourceMappingURL=style.css.map */

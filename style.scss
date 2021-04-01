@@ -1,0 +1,63 @@
+$session-color: black;
+$break-color: white;
+body{
+    background-color: gray;
+}
+h6{
+    font-weight: bolder;
+    font-size: xx-large;
+}
+#clock{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 10%;
+    border: 20px solid rgb(23, 77, 77);
+    background-color: lightsteelblue;
+    display: inline-flex;
+    flex-direction: row;
+}
+#break-time{
+    color: $break-color;
+}
+#timer{
+    border-radius: 15%;
+    border: 10px solid $session-color;
+    background-color: lightskyblue;
+    color: $session-color;
+    text-align: center;
+}
+#session-time{
+    color: $session-color;
+    text-align: right;
+}
+.btns{
+    background-color: black;
+    border-radius: 100%;
+    &:active{
+        outline: none;
+    }
+    &:focus{
+        outline: none;
+    }
+}
+.btns-timer{
+    background-color: black;
+    border-radius: 15%;
+    &:active{
+        outline: none;
+    }
+    &:focus{
+        outline: none;
+    }
+}
+.up-icon{
+    color: rgb(14, 185, 37);
+}
+.down-icon{
+    color: rgb(158, 16, 16);
+}
+.timer-icon{
+    color: rgb(13, 72, 235);
+}
