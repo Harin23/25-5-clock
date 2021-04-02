@@ -110,6 +110,7 @@ class App extends React.Component{
     render(){
         return(
             <div className="container" id="clock">
+                <audio></audio>
                 <div className="container" id="break-time">
                     <button onClick={this.updateTimerLength}className="btns" id="break-increment"><i className="fa fa-sort-up fa-3x up-icon"></i></button>
                     <h6 id="break-label">Break Length:</h6>
