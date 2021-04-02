@@ -10,15 +10,6 @@ class App extends React.Component{
             paused: true,
             currTimer: "Session"
         }
-        // this.state={
-        //     breakLength: 5,
-        //     sessionLength: 0,
-        //     endTime: 0,
-        //     minsLeft: 0,
-        //     secsLeft: 5,
-        //     paused: true,
-        //     currTimer: "Session"
-        // }
         this.startStopTimer=this.startStopTimer.bind(this);
         this.timer=this.timer.bind(this);
         this.switchTimer=this.switchTimer.bind(this);
