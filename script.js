@@ -46,13 +46,16 @@ class App extends React.Component{
         });
     }
     resetTimer(){
-        this.setState(state=>({
+        clearInterval(this.timerCaller);
+        this.setState({
+            breakLength: 5,
+            sessionLength: 25,
             endTime: 0,
-            minsLeft: state.sessionLength,
+            minsLeft: 25,
             secsLeft: 0,
             paused: true,
             currTimer: "Session"
-        }))
+        });
     }
     switchTimer(){
         if(this.state.currTimer=="Session"){
@@ -74,23 +77,35 @@ class App extends React.Component{
         }
     }
     updateTimerLength(e){
-        if(e.target.parentElement.id=="break-increment"){
-            this.setState(state=>({
-                breakLength: state.breakLength+1
-            }));
-        }else if(e.target.parentElement.id=="break-decrement"){
-            this.setState(state=>({
-                breakLength: state.breakLength-1
-            }));
-        }else if(e.target.parentElement.id=="session-increment"){
-            this.setState(state=>({
-                sessionLength: state.sessionLength+1
-            }));
-        }else if(e.target.parentElement.id=="session-decrement"){
-            this.setState(state=>({
-                sessionLength: state.sessionLength-1
-            }));
-        };
+        if(this.state.paused==true){
+            if(e.target.parentElement.id=="break-increment"){
+                if(this.state.breakLength<60){
+                    this.setState(state=>({
+                        breakLength: state.breakLength+1
+                    }));
+                }
+            }else if(e.target.parentElement.id=="break-decrement"){
+                if(this.state.breakLength>1){
+                    this.setState(state=>({
+                        breakLength: state.breakLength-1
+                    }));
+                }
+            }else if(e.target.parentElement.id=="session-increment"){
+                if(this.state.sessionLength<60){
+                    this.setState(state=>({
+                        sessionLength: state.sessionLength+1,
+                        minsLeft: state.sessionLength+1
+                    }));
+                }
+            }else if(e.target.parentElement.id=="session-decrement"){
+                if(this.state.sessionLength>1){
+                    this.setState(state=>({
+                        sessionLength: state.sessionLength-1,
+                        minsLeft: state.sessionLength-1
+                    }));
+                }
+            };
+        }
     }
     render(){
         return(
@@ -103,7 +118,7 @@ class App extends React.Component{
                 </div>
                 <div className="container" id="timer">
                     <h6 id="timer-label">{this.state.currTimer}</h6>
-                    <h6 id="time-left">{this.state.minsLeft}:{("0"+this.state.secsLeft).slice(-2)}</h6>
+                    <h6 id="time-left">{("0"+this.state.minsLeft).slice(-2)}:{("0"+this.state.secsLeft).slice(-2)}</h6>
                     <button onClick={this.startStopTimer} className="btns-timer" id="start_stop"><i className="fa fa-play fa-3x timer-icon"></i><i className="fa fa-pause fa-3x timer-icon"></i></button>
                     <button onClick={this.resetTimer} className="btns-timer" id="reset"><i className="fa fa-undo fa-3x timer-icon"></i></button>
                 </div>
